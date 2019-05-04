@@ -1,0 +1,5 @@
+https://github.com/etkeys/randombg-dotnet.git
+./publishcore-release | tee >(grep -E "\s+randombg-dotnet.+\/publish\/$" | awk -F" -> " '{print $2}' > .target)
+if [ "$(wc -l .target | cut -d " " -f 1)" != "1" ] ; then rm .target; fi
+mv "$(head -n 1 .target)" /usr/local/bin/randombg-dotnet.d
+ln -sfn /usr/local/bin/randombg-dotnet.d/randombg-dotnet /usr/local/bin/randombg-dotnet

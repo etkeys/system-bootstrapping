@@ -1,0 +1,5 @@
+https://github.com/vivien/i3blocks
+./autogen.sh
+./configure
+make
+make install
